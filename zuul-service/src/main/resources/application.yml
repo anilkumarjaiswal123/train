@@ -1,0 +1,33 @@
+zuul:
+  #Service will be mapped under the /api URI
+  prefix: /api
+  routes:
+    user-service:
+      path: /users/**
+      url: http://localhost:8300
+      service-id: user-service        
+      
+    ticket-service:
+       path: /ticket/**
+       url: http://localhost:8302
+       serviceId: ticket-service
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8070/eureka/
+  instance:
+    hostname: localhost
+
+server:
+  port: 8079
+
+spring:
+  application:
+    name: zuul-service
+
+# Increase the Hystrix timeout to 60s (for all)
+ 
+ 
+
+  
